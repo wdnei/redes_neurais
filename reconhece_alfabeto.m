@@ -24,31 +24,26 @@ Tn = repmat(alfabetoAlvo,1,numNoise);
 net1 = train(net1,Xn,Tn);
 
 
-%% TESTE
+%% TESTE INTERATIVO
 % Testa a rede com um novo alfabeto com ruido
+% É criado um novo alfabeto com ruido aleatorio e apos isto todos sao
+% testados. Por fim, os resultados são mostrado de maneira interativa pela
+% função showResult
 
 taxa_ruido=0.2;%um multiplicador para gerar ruido
 
 alfabetoAleatorio=min(max(alfabetoMat+randn(35,26)*taxa_ruido,0),1);
 
-% escolhe uma letra aleatoria para testar
-letraAl=randi([1 26]);
+A = zeros(5,100);
 
 
-figure
-%desenha entrada
-subplot(1,2,1);
-plotchar(alfabetoAleatorio(:,letraAl));
-title('Entrada');
+[a ,tam]=size(alfabetoAleatorio);
+x=0;
+letraResult={};
+%classifica o alfabeto de entrada com a rede neural
+result=net1(alfabetoAleatorio);
+for i = 1:(tam)        
+    letraResult{i}=find(compet(result(:,i)) == 1);    
+end
 
-
-%classifica a letra de entrada com a rede neural
-result=net1(alfabetoAleatorio(:,letraAl));
-letraResult=find(compet(result) == 1);
-
-%desenha saida
-subplot(1,2,2);
-plotchar(alfabetoMat(:,letraResult));
-title('Saida');
-
-
+showResult(alfabetoAleatorio,letraResult);
