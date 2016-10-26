@@ -1,8 +1,8 @@
+%% Autor: Wdnei Ribeiro da Paixao
 function showResult( alfabetoEntrada,letrasResultado )
 %SHOWRESULT Funcao para mostrar os resultados de forma incremental
 % Como entrada é passado o alfabeto de entrada para teste e um array
 % contendo o resultado da classificação realizada pela rede neural
-%   Detailed explanation goes here
 [alfabetoMat,alfabetoAlvo] = prprob;
 
 f=figure();

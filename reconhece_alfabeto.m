@@ -1,3 +1,4 @@
+%% Autor: Wdnei Ribeiro da Paixao
 %% Reconhecendo o alfabeto usando redes neurais
 % Este arquivo mostra um exemplo de classificacao por redes neurais de "imagens" ou matrizes
 % que representam figuras de letras do alfabeto.
